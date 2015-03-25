@@ -14,7 +14,7 @@ ext/redcloth_scan/*.[co]
 ext/redcloth_scan/extconf.rb
 ext/redcloth_scan/Makefile
 ext/redcloth_scan/redcloth_*.rb
-lib/*.bundle
+#lib/*.bundle
 lib/*.jar
 lib/*.so
 lib/**/*.so

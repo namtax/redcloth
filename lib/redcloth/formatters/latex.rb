@@ -3,9 +3,7 @@ require 'yaml'
 module RedCloth::Formatters::LATEX
   include RedCloth::Formatters::Base
 
-  def self.entities
-    @entities ||= YAML.load(File.read(File.dirname(__FILE__)+'/latex_entities.yml'))
-  end
+  ENTITIES = YAML::load(File.read(File.dirname(__FILE__)+'/latex_entities.yml'))
 
   module Settings
     # Maps CSS style names to latex formatting options
@@ -277,8 +275,8 @@ module RedCloth::Formatters::LATEX
   # TODO: what do we do with (unknown) unicode entities ? 
   #
   def entity(opts)
-    text = opts[:text][0..0] == '#' ? opts[:text][1..-1] : opts[:text]
-    RedCloth::Formatters::LATEX.entities[text]
+    text = opts[:text][0..0] == '#' ? opts[:text][1..-1] : opts[:text] 
+    ENTITIES[text]
   end
 
   def dim(opts)
